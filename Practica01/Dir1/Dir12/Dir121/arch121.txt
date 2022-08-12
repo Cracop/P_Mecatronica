@@ -1,0 +1,29 @@
+apt install tree
+   94  sudo apt install tree
+   95  sudo su apt install tree
+   96  sudo su
+   97  tree Dir1
+   98  tree
+   99  ls
+  100  cd Dir1
+  101  ls
+  102  tree
+  103  tree
+  104  ls
+  105  mv Dir1 Practica01 -r
+  106  mv Dir1 Practica01 --r
+  107  mv --help
+  108  mv Dir1 Practica01 
+  109  tree
+  110  cd Practica01
+  111  cp Dir1 Dir1_cp -r
+  112  ls
+  113  tree
+  114  mv Dir1_cp Copia_dir
+  115  tree
+  116  nano Dir1/Dir11/Dir111/arch111.txt
+  117  cat Dir1/Dir11/Dir111/arch111.txt
+  118  cd ..
+  119  git status
+  120  history
+
