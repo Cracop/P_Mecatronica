@@ -11,7 +11,6 @@ void setup() {
   
   Wire.begin(0xAF);
   
-
   Serial.begin(9600);
 }
 
