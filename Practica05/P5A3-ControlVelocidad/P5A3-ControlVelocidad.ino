@@ -1,10 +1,10 @@
 #include <Wire.h>
 #define motA 10
 #define motB 11
-#define pot A10
+#define pot A0
 #define sal 9
 
-float val, voltaje, salida;
+float pote, potencia, salida;
 
 void setup() {
   pinMode(motA,OUTPUT);
@@ -14,37 +14,39 @@ void setup() {
 }
 
 void loop() {
-  val = analogRead(pot);
-  voltaje = map(val,0, 1023, 0, 5);
+  pote=analogRead(pot);
+  potencia = map(pote,0, 1023, 0, 5);
   
-  if(voltaje<= 5 && voltaje>=3){
+  if(potencia<= 5 && potencia>=3){
     Dextrogiro();
-    salida = map(val,615,1023,0,255);
+    salida = map(pote,615,1023,0,255);
     }else{
-      if(voltaje>=2){
+      if(potencia>=2){
         salida = 0;
         Detenido();
         }else{
-          salida = map(val,410,0,0,255);
+          salida = map(pote,410,0,0,255);
           Levogiro();
         }
       }
    
    analogWrite(sal, salida);
    Serial.println(salida);
-   Serial.println(voltaje);
+   Serial.println(potencia);
 }
 
 void Levogiro(){
   digitalWrite(motA, HIGH);
   digitalWrite(motB, LOW);
   Serial.print("Levogiro ");
+  delay(1000);
 }
 
 void Detenido(){
   digitalWrite(motA, LOW);
   digitalWrite(motB, LOW);
   Serial.print("Detenido");
+    delay(1000);
 }
 
 void Dextrogiro(){
