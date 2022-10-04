@@ -1,18 +1,26 @@
+#define volt A0
 #define LED 7
-#define lectura A0
 
-float volt;
+float value = 0.0;
+float brillo = 0.0;
+float voltaje = 0.0;
 
 void setup() {
-  // put your setup code here, to run once:
+  pinMode(LED,OUTPUT);
+  pinMode(volt,INPUT);
   Serial.begin(9600);
-  pinMode(LED, OUTPUT);
-  pinMode(lectura,INPUT);
-  
-  
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  value = analogRead(volt);
+  brillo = value/1023*255;
+  voltaje = value/1023*5;
+  
+  Serial.print("%Voltaje:");
+  Serial.println(voltaje);
+  Serial.print("%Value:");
+  Serial.println(value);
+  delay(100);
+  analogWrite(LED,brillo);
 
 }
